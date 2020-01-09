@@ -4,6 +4,10 @@ body {
     margin: 1rem;
 }
 
+svg {
+    margin-bottom: 1.2em;
+}
+
 table {
     color: #616161;
 }

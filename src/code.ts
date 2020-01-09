@@ -5,7 +5,7 @@ async function loadFont(node) {
 
 // Show plugin UI.
 figma.showUI(__html__);
-figma.ui.resize(430, 230);
+figma.ui.resize(450, 290);
 
 // Fetch all the text in the selected frame.
 // [<Name of the object>, <Text contents>]
