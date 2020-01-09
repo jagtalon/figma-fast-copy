@@ -5,7 +5,7 @@ async function loadFont(node) {
 
 // Show plugin UI.
 figma.showUI(__html__);
-figma.ui.resize(400, 220);
+figma.ui.resize(430, 230);
 
 // Fetch all the text in the selected frame.
 // [<Name of the object>, <Text contents>]
@@ -24,6 +24,6 @@ figma.ui.postMessage(textFound);
 
 figma.ui.onmessage = msg => {
  if(msg.type === 'notification') {
-   figma.notify(msg.message, {timeout: 1});
+   figma.notify(msg.message, {timeout: 2});
  }
 }
