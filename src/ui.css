@@ -1,0 +1,15 @@
+body {
+    font: 12px sans-serif;
+    text-align: center;
+    margin: 1rem;
+}
+
+td {
+    padding: .75rem;
+    font-size: .80rem;
+}
+
+td:hover {
+    background: #eee;
+    cursor: pointer;
+}

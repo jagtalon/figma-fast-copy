@@ -1,0 +1,33 @@
+{
+  "name": "figma-real-text",
+  "version": "1.0.0",
+  "description": "A Figma Plugin that replaces your text with real data.",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "@types/clipboard": "^2.0.1",
+    "clipboard": "^2.0.4",
+    "css-loader": "^3.2.1",
+    "html-webpack-inline-source-plugin": "^0.0.10",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^1.0.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.3",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jagtalon/real-text.git"
+  },
+  "author": "Jag Talon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jagtalon/real-text/issues"
+  },
+  "homepage": "https://github.com/jagtalon/real-text#readme"
+}
