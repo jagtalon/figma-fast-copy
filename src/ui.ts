@@ -35,10 +35,10 @@ onmessage = (event) => {
 
 // From https://stackoverflow.com/a/6150060
 function copyContent(event: MouseEvent) {
-  var range: Range = document.createRange();
+  let range: Range = document.createRange();
   range.selectNodeContents(this);
   
-  var sel: Selection = window.getSelection();
+  let sel: Selection = window.getSelection();
   sel.removeAllRanges();
   sel.addRange(range);
 
