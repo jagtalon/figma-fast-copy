@@ -19,6 +19,9 @@ selection.forEach(selected => {
   });
 });
 
+// Zoom into your selection.
+figma.viewport.scrollAndZoomIntoView(selection);
+
 // Send the text that we got from the frame to the UI.
 figma.ui.postMessage(textFound);
 
