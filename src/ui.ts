@@ -10,29 +10,33 @@ onmessage = (event) => {
       table: HTMLTableElement = document.createElement('table'),
       container: HTMLElement = document.querySelector('.plugin__container');
 
-  // Attach the table to the container.
-  container.append(table);
+  if (pluginMessage.length > 0) {
+    document.querySelector('.plugin__nothing').classList.add('hidden');
+    
+    // Attach the table to the container.
+    container.append(table);
 
-  // Build the table.
-  // TODO: Probably best to refactor this into either Vue or React.
-  pluginMessage.forEach(obj => {
-    let tr: HTMLTableRowElement = document.createElement('tr');
-    tr.dataset.id = obj.id;
-    tr.onclick = textNodeSelection;
-    table.append(tr);
+    // Build the table.
+    // TODO: Probably best to refactor this into either Vue or React.
+    pluginMessage.forEach(obj => {
+      let tr: HTMLTableRowElement = document.createElement('tr');
+      tr.dataset.id = obj.id;
+      tr.onclick = textNodeSelection;
+      table.append(tr);
 
-    // Map the list of strings into a list of HTMLTableCellElements.
-    [obj.name, obj.characters].map(text => {
-      let td: HTMLTableCellElement = document.createElement('td');
-      td.append(document.createTextNode(text));
-      td.setAttribute('contenteditable', 'true');
-      td.onclick = copyContent;
+      // Map the list of strings into a list of HTMLTableCellElements.
+      [obj.name, obj.characters].map(text => {
+        let td: HTMLTableCellElement = document.createElement('td');
+        td.append(document.createTextNode(text));
+        td.setAttribute('contenteditable', 'true');
+        td.onclick = copyContent;
 
-      return td;
-    }).forEach(cell => {
-      tr.append(cell);
+        return td;
+      }).forEach(cell => {
+        tr.append(cell);
+      });
     });
-  });
+  }
 }
 
 // From https://stackoverflow.com/a/6150060

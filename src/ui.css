@@ -26,3 +26,12 @@ td:hover, td:focus {
     color: #000;
     cursor: pointer;
 }
+
+.hidden {
+    display: none;
+}
+
+.plugin__nothing {
+    font-size: 1.9em;
+    color: #9a9a9a;
+}
