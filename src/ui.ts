@@ -6,7 +6,7 @@ import './ui.css'
 
 // Receive all the text nodes of the selected frame from the plugin.
 onmessage = (event) => {
-  let pluginMessage: string[][] = event.data.pluginMessage,
+  let pluginMessage: Array<any> = event.data.pluginMessage,
       table: HTMLTableElement = document.createElement('table'),
       container: HTMLElement = document.querySelector('.plugin__container');
 
@@ -15,12 +15,14 @@ onmessage = (event) => {
 
   // Build the table.
   // TODO: Probably best to refactor this into either Vue or React.
-  pluginMessage.forEach(list => {
+  pluginMessage.forEach(obj => {
     let tr: HTMLTableRowElement = document.createElement('tr');
+    tr.dataset.id = obj.id;
+    tr.onclick = textNodeSelection;
     table.append(tr);
 
     // Map the list of strings into a list of HTMLTableCellElements.
-    list.map(text => {
+    [obj.name, obj.characters].map(text => {
       let td: HTMLTableCellElement = document.createElement('td');
       td.append(document.createTextNode(text));
       td.setAttribute('contenteditable', 'true');
@@ -46,4 +48,8 @@ function copyContent(event: MouseEvent) {
 
   // Tell the plugin about it.
   parent.postMessage({pluginMessage: {type: 'notification', message: 'Copied Text'}}, '*');
+}
+
+function textNodeSelection(event: MouseEvent) {
+  parent.postMessage({pluginMessage: {type: 'zoom-in', message: this.dataset.id}}, '*');
 }
