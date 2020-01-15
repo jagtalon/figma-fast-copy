@@ -12,22 +12,33 @@ figma.ui.resize(450, 290);
 let selection: ReadonlyArray<SceneNode> = figma.currentPage.selection;
 let textFound: Array<any> = [];
 
-selection.forEach(selected => {
-  let textNodes = (selected as any).findAll(node => node.type === "TEXT");
-  textNodes.forEach(node => { 
-    textFound.push({
-      name: node.name, 
-      characters: node.characters,
-      id: node.id
-    });
+if (selection.length > 0) {
+  selection.forEach(selected => {
+    if (selected.type === 'GROUP' || selected.type === 'FRAME') {
+      let textNodes = (selected as any).findAll(node => node.type === "TEXT");
+
+      if (textNodes.length > 0) {
+        textNodes.forEach(node => { 
+          textFound.push({
+            name: node.name, 
+            characters: node.characters,
+            id: node.id
+          });
+        });
+      }
+    }
   });
-});
 
-// Zoom into your selection.
-figma.viewport.scrollAndZoomIntoView(selection);
+  if (textFound.length > 0) {
+    // Zoom into your selection.
+    figma.viewport.scrollAndZoomIntoView(selection);
 
-// Send the text that we got from the frame to the UI.
-figma.ui.postMessage(textFound);
+    // Send the text that we got from the frame to the UI.
+    figma.ui.postMessage(textFound);
+  } else {
+    figma.ui.resize(450, 200);
+  }
+}
 
 figma.ui.onmessage = msg => {
   // Show a notification that the text has been copied.
