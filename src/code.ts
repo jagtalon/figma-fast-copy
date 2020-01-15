@@ -14,8 +14,15 @@ let textFound: Array<any> = [];
 
 if (selection.length > 0) {
   selection.forEach(selected => {
-    if (selected.type === 'GROUP' || selected.type === 'FRAME') {
-      let textNodes = (selected as any).findAll(node => node.type === "TEXT");
+    if (selected.type === 'GROUP' || selected.type === 'FRAME' ||
+        selected.type === 'INSTANCE' || selected.type === 'COMPONENT' || selected.type === 'TEXT') {
+      let textNodes;
+      
+      if (selected.type === 'TEXT') {
+        textNodes = [selected];
+      } else {
+        textNodes = (selected as any).findAll(node => node.type === "TEXT");
+      }
 
       if (textNodes.length > 0) {
         textNodes.forEach(node => { 
