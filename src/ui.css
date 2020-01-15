@@ -10,6 +10,7 @@ svg {
 
 table {
     color: #616161;
+    width: 100%;
 }
 
 tr:nth-child(odd) {
