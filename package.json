@@ -4,8 +4,6 @@
   "description": "A Figma Plugin that replaces your text with real data.",
   "main": "webpack.config.js",
   "dependencies": {
-    "@types/clipboard": "^2.0.1",
-    "clipboard": "^2.0.4",
     "css-loader": "^3.2.1",
     "html-webpack-inline-source-plugin": "^0.0.10",
     "html-webpack-plugin": "^3.2.0",
@@ -22,12 +20,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jagtalon/real-text.git"
+    "url": "git+https://github.com/jagtalon/figma-fast-copy.git"
   },
   "author": "Jag Talon",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jagtalon/real-text/issues"
+    "url": "https://github.com/jagtalon/figma-fast-copy/issues"
   },
-  "homepage": "https://github.com/jagtalon/real-text#readme"
+  "homepage": "https://github.com/jagtalon/figma-fast-copy#readme"
 }
