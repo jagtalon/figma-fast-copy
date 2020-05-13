@@ -25,10 +25,10 @@ onmessage = (event) => {
       table.append(tr);
 
       // Map the list of strings into a list of HTMLTableCellElements.
-      [obj.name, obj.characters].map(text => {
+      [obj.characters].map(text => {
         let td: HTMLTableCellElement = document.createElement('td');
         td.append(document.createTextNode(text));
-        td.setAttribute('contenteditable', 'true');
+        //td.setAttribute('contenteditable', 'true');
         td.onclick = copyContent;
 
         return td;

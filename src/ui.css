@@ -9,17 +9,20 @@ svg {
 }
 
 table {
-    color: #616161;
+    color:#333;
     width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #dee2e6;
 }
 
 tr:nth-child(odd) {
-    background-color: #eee;
+    background-color: rgba(0,0,0,.05);
 }
 
 td {
     padding: .75rem;
     font-size: .80rem;
+    border-top: 1px solid #dee2e6;
 }
 
 td:hover, td:focus {
