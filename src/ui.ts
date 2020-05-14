@@ -16,6 +16,9 @@ onmessage = (event) => {
     // Attach the table to the container.
     container.append(table);
 
+    pluginMessage.sort((a, b) => a.x - b.x);
+    pluginMessage.sort((a, b) => a.y - b.y);
+
     // Build the table.
     // TODO: Probably best to refactor this into either Vue or React.
     pluginMessage.forEach(obj => {
@@ -25,10 +28,10 @@ onmessage = (event) => {
       table.append(tr);
 
       // Map the list of strings into a list of HTMLTableCellElements.
-      [obj.name, obj.characters].map(text => {
+      [obj.characters].map(text => {
         let td: HTMLTableCellElement = document.createElement('td');
         td.append(document.createTextNode(text));
-        td.setAttribute('contenteditable', 'true');
+        //td.setAttribute('contenteditable', 'true');
         td.onclick = copyContent;
 
         return td;
