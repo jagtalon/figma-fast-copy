@@ -16,6 +16,9 @@ onmessage = (event) => {
     // Attach the table to the container.
     container.append(table);
 
+    pluginMessage.sort((a, b) => a.x - b.x);
+    pluginMessage.sort((a, b) => a.y - b.y);
+
     // Build the table.
     // TODO: Probably best to refactor this into either Vue or React.
     pluginMessage.forEach(obj => {

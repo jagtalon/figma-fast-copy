@@ -25,11 +25,13 @@ if (selection.length > 0) {
       }
 
       if (textNodes.length > 0) {
-        textNodes.forEach(node => { 
+        textNodes.forEach(node => {
           textFound.push({
             name: node.name, 
             characters: node.characters,
-            id: node.id
+            id: node.id,
+            x: node.x,
+            y: node.y
           });
         });
       }
